@@ -28,9 +28,8 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v1
       - id: start_monode_deployment
-        uses: monoppolis-cloud/start-monopolis-deployment@main
+        uses: monopolis-cloud/start-monode-deployment@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo deployment
