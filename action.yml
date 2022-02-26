@@ -1,0 +1,13 @@
+name: 'Monopolis: Start Monode Deployment'
+description: 'Registers the start of a Monode deployment'
+author: 'Monopolis'
+branding:
+  icon: 'rss'
+  color: 'gray-dark'
+outputs:
+  environment_map:
+    description: 'A map of the SHAs of the other Monodes deployed to this environment.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
