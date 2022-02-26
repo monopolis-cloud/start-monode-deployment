@@ -1,6 +1,6 @@
 # Monopolis: Start Monode Deployment
 
-This action is designed to work with Monopolis deployments. It starts a deployment from a GitHub Actions pipeline
+This action is designed to work with Monopolis deployment workflows only. It starts a deployment from a GitHub Actions pipeline
 
 ## Action inputs
 None. These are picked up automatically from the input event which triggered the workflow.
