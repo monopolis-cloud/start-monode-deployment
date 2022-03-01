@@ -2,7 +2,7 @@ name: 'Monopolis: Start Monode Deployment'
 description: 'Registers the start of a Monode deployment'
 author: 'Monopolis'
 branding:
-  icon: 'rss'
+  icon: 'code'
   color: 'gray-dark'
 outputs:
   environment_map:
