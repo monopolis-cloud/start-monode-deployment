@@ -1,3 +1,4 @@
+#!/bin/ash -xe
 
 get_from_event() {
   jq -r "$1" "${GITHUB_EVENT_PATH}"
