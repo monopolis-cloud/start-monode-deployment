@@ -1,14 +1,14 @@
-# Monopolis: Start Monode Deployment
+# Monopolis: Start Monode Rollout
 
-This action is designed to work with Monopolis deployment workflows only. It starts a deployment from a GitHub Actions pipeline
+This action is designed to work with Monopolis rollout workflows only. It starts a deployment from a GitHub Actions pipeline
 
 ## Action inputs
 None. These are picked up automatically from the input event which triggered the workflow.
 
 ## Action outputs
-| Name            | Sample value                 | Description                                        |
-|-----------------|------------------------------|----------------------------------------------------|
-| environment_map | {"app1":"9467c95163a5c56ad"} | JSON map of contents of the deployment environment |
+| Name            | Sample value                 | Description                                    |
+|-----------------|------------------------------|------------------------------------------------|
+| environment_map | {"app1":"9467c95163a5c56ad"} | JSON map of contents of the target environment |
 
 ## Example
 This example demonstrates the usage.
@@ -28,10 +28,10 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
-      - id: start_monode_deployment
-        uses: monopolis-cloud/start-monode-deployment@main
+      - id: start
+        uses: monopolis-cloud/start-monode-rollout@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo deployment
-      - run: echo ${{ steps.start_monode_deployment.outputs.environment_map }}
+      - run: echo ${{ steps.start.outputs.environment_map }}
 ```

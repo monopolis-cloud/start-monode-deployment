@@ -1,12 +1,12 @@
-name: 'Monopolis: Start Monode Deployment'
-description: 'Registers the start of a Monode deployment'
+name: 'Monopolis: Start Monode Rollout'
+description: 'Registers the start of a Monode rollout'
 author: 'Monopolis'
 branding:
   icon: 'code'
   color: 'gray-dark'
 outputs:
   environment_map:
-    description: 'A map of the SHAs of the other Monodes deployed to this environment.'
+    description: 'A map of the SHAs of the other Monodes in the target environment.'
 runs:
   using: 'docker'
   image: 'Dockerfile'
