@@ -5,8 +5,12 @@ branding:
   icon: 'code'
   color: 'gray-dark'
 outputs:
-  environment_map:
-    description: 'A map of the SHAs of the other Monodes in the target environment.'
+  configurations:
+    description: 'A map of the Monodes crosscheck configurations for the target environment.'
+  downstream-crosschecks:
+    description: 'A list of the downstream Monodes to be crosschecked the target environment.'
+  upstream-crosschecks:
+    description: 'A list of the upstream Monodes to be crosschecked the target environment.'
 runs:
   using: 'docker'
   image: 'Dockerfile'
