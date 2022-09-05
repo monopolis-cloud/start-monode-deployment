@@ -10,11 +10,12 @@ if jq --exit-status '.inputs.deployment_id' "$GITHUB_EVENT_PATH" >/dev/null; the
   CONFIGURATIONS=$(curl --fail -X POST "${MONOPOLIS_URL}" -H "Authorization: Bearer ${GITHUB_TOKEN}")
   echo ::set-output name=configurations::$CONFIGURATIONS
 
-  UPSTREAM=$(echo "$CONFIGURATIONS" | jq 'if . == {} then [] else to_entries[] | select(.value.type == "upstream") | .key end')
+  UPSTREAM=$(echo "$CONFIGURATIONS" | jq 'to_entries | map(select(.value.type == "upstream")) | map(.key)')
   echo ::set-output name=upstream-crosschecks::$UPSTREAM
 
-  DOWNSTREAM=$(echo "$CONFIGURATIONS" | jq 'if . == {} then [] else to_entries[] | select(.value.type == "downstream") | .key end')
+  DOWNSTREAM=$(echo "$CONFIGURATIONS" | jq 'to_entries | map(select(.value.type == "downstream")) | map(.key)')
   echo ::set-output name=downstream-crosschecks::$DOWNSTREAM
+
 else
   echo ::set-output name=configurations::"{}"
   echo ::set-output name=upstream-crosschecks::"[]"
