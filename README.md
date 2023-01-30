@@ -21,7 +21,7 @@ name: Example monode rollout
 on:
   workflow_dispatch:
     inputs:
-      ROLLOUT_ID:
+      ROLLOUT_DEPLOYMENT_ID:
         description: Rollout Id
         required: true
         type: string

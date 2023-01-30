@@ -4,8 +4,8 @@ get_from_event() {
   jq -r "$1" "${GITHUB_EVENT_PATH}"
 }
 
-if jq --exit-status '.inputs.ROLLOUT_ID' "$GITHUB_EVENT_PATH" >/dev/null; then
-  MONOPOLIS_URL="https://github-api.monopolis.cloud/rollout/start/$(get_from_event '.repository.full_name')/$(get_from_event '.inputs.ROLLOUT_ID')"
+if jq --exit-status '.inputs.ROLLOUT_DEPLOYMENT_ID' "$GITHUB_EVENT_PATH" >/dev/null; then
+  MONOPOLIS_URL="https://github-api.monopolis.cloud/rollout/start/$(get_from_event '.repository.full_name')/$(get_from_event '.inputs.ROLLOUT_DEPLOYMENT_ID')"
 
   CONFIGURATIONS=$(curl --fail -X POST "${MONOPOLIS_URL}" -H "Authorization: Bearer ${GITHUB_TOKEN}")
   echo ::set-output name=configurations::$CONFIGURATIONS
