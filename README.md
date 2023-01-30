@@ -1,6 +1,6 @@
 # Monopolis: Start Monode Rollout
 
-This action is designed to work with Monopolis rollout workflows only. It starts a deployment from a GitHub Actions pipeline and returns Crosscheck configurations for running Crosschecks.
+This action is designed to work with Monopolis rollout workflows only. It starts a rollout from a GitHub Actions pipeline and returns Crosscheck configurations for running Crosschecks.
 
 ## Action inputs
 None. These are picked up automatically from the input event which triggered the workflow.
@@ -16,13 +16,13 @@ None. These are picked up automatically from the input event which triggered the
 This example demonstrates the usage.
 
 ```yml
-name: Example monode deployment
+name: Example monode rollout
 
 on:
   workflow_dispatch:
     inputs:
-      deployment_id:
-        description: Deployment ID
+      ROLLOUT_ID:
+        description: Rollout Id
         required: true
         type: string
 
@@ -34,7 +34,7 @@ jobs:
         uses: monopolis-cloud/start-monode-rollout@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: echo deployment
+      - run: echo rollout
       - run: echo ${{ steps.start.outputs.upstream-crosschecks }}
       - run: echo ${{ steps.start.outputs.downstream-crosschecks }}
       - run: echo ${{ steps.start.outputs.configurations }}
